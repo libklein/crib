@@ -76,7 +76,7 @@ def _load_property_page_model(response: Response) -> Dict:
         )
         .extract_first()
         .strip()
-    )
+    ).split("\n")[0]
     jsmodel = script[len("window.PAGE_MODEL = ") :]
     model = json.loads(jsmodel)
     return model
